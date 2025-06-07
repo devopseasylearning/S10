@@ -1,0 +1,19 @@
+Students should create a Dockerfile that does the following:
+
+    Uses an official Python image
+
+    Sets a working directory
+
+    Copies project files into the image
+
+    Installs Python dependencies
+
+    Sets an environment variable
+
+    Exposes port 5000
+
+    Sets the user
+
+    Provides maintainer info and label
+
+    Defines the default command to run the app
