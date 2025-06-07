@@ -1,19 +1,28 @@
-Students should create a Dockerfile that does the following:
+# Use an official Python image (here: Python 3.11 slim version for lighter image)
+FROM python:3.11-slim
 
-    Uses an official Python image
+# Maintainer info and project label
+LABEL maintainer="s10arnaud.wft@gmail.com"
+LABEL project="Python_App"
 
-    Sets a working directory
+# Set a working directory 
+WORKDIR /app
 
-    Copies project files into the image
+# Copy project files into the image
+COPY . /app
 
-    Installs Python dependencies
+# Install Python dependencies 
+RUN pip install --no-cache-dir 
 
-    Sets an environment variable
+# Set an environment variable
+ENV APP_ENV=production
 
-    Exposes port 5000
+# Exposes port 5000
+EXPOSE 5000
 
-    Sets the user
+# Set user 
+RUN useradd -m appuser
+USER appuser
 
-    Provides maintainer info and label
-
-    Defines the default command to run the app
+# Define the default command to run the app
+CMD ["python", "app.py"]
